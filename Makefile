@@ -6,6 +6,9 @@ PACKAGES:=pkgconf bash make gcc musl-dev linux-headers cmake
 all: install rootfs.tar.gz
 	@echo all done.
 
+deps:
+	apt install bubblewrap -y
+
 install: rootfs
 	bwrap --bind $< / --dev /dev --proc /proc /bin/sh -c "apk add $(PACKAGES)"
 
