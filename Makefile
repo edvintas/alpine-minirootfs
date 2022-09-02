@@ -7,6 +7,7 @@ all: install rootfs.tar.gz
 	@echo all done.
 
 deps:
+	docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 	apt install bubblewrap -y
 
 install: rootfs
