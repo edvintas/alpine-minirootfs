@@ -18,8 +18,8 @@ rootfs: alpine-minirootfs-$(ALPINE_VERSION)-aarch64.tar.gz
 	cd $@ && tar -xvf ../$<
 	cp resolv.conf $@/etc/resolv.conf
 
-rootfs.tar.gz:
-	cd rootfs && tar -zcpf ../$@ *
+rootfs.tar.gz: rootfs
+	tar -zcpf $@ $<
 
 alpine-minirootfs-$(ALPINE_VERSION)-$(ALPINE_ARCH).tar.gz:
 	wget --no-check-certificate https://dl-cdn.alpinelinux.org/alpine/v$(ALPINE_MMV)/releases/aarch64/alpine-minirootfs-$(ALPINE_VERSION)-$(ALPINE_ARCH).tar.gz
