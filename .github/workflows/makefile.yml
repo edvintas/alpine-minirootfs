@@ -31,6 +31,11 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
 
     steps:
+    - uses: actions/download-artifact@master
+      with:
+        name: rootfs
+        path: rootfs.tar.gz
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
