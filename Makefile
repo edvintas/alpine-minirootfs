@@ -1,7 +1,7 @@
 ALPINE_MMV:=3.16
 ALPINE_VERSION:=$(ALPINE_MMV).2
 ALPINE_ARCH:=aarch64
-PACKAGES:=pkgconf bash make gcc musl-dev linux-headers cmake patch pv
+PACKAGES:=pkgconf bash make gcc musl-dev linux-headers cmake patch pv nano
 
 all: install rootfs.tar.gz
 	@echo all done.
